@@ -1,0 +1,427 @@
+/* ================= GLOBAL ================= */
+.app {
+  min-height: 100vh;
+  padding: 28px 48px;
+  background: radial-gradient(circle at top, #0b1220, #020617);
+  color: #e5e7eb;
+  font-family: Inter, system-ui, sans-serif;
+  padding: 24px
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.sub-title {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.event-name-box label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.event-name-box input {
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: #020617;
+  border: 1px solid #3e506c;
+  border-radius: 10px;
+  color: #e5e7eb;
+}
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .event-name-box input {
+    width: 100%;
+  }
+}
+/* ================= CONTROLS ================= */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #020617;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.controls input {
+  background: transparent;
+  border: 1px solid #1e293b;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #e5e7eb;
+}
+.controls .field {
+  min-width: 140px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .controls {
+    justify-content: space-between;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+}
+
+/* ================= BUTTONS ================= */
+.primary-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #162a6d;
+}
+
+.danger-btn {
+  background: #ff4d6d;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+/* ================= LEGEND & STATS ================= */
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.seat-legend span {
+  font-size: 12px;
+  margin-right: 18px;
+  color: #94a3b8;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.dot.available { background: #22ff88; }
+.dot.occupied { background: #ff4d6d; }
+.dot.late { background: #ffb703; }
+
+.stats-inline .stat {
+  min-width: 160px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  text-align: center;
+}
+
+.stats-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 32px auto 0;
+  flex-wrap: wrap;
+}
+
+/* Mobile stack if needed */
+@media (max-width: 480px) {
+  .stats-inline {
+    gap: 12px;
+  }
+
+  .stats-inline .stat {
+    min-width: 100%;
+  }
+}
+.stat.total { color: #38bdf8; }
+.stat.occupied { color: #ff4d6d; }
+.stat.available { color: #22ff88; }
+
+/* ================= QR ================= */
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 26px 0;
+  padding: 0 12px;
+}
+
+.qr-card {
+  width: 100%;
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 520%;
+}
+
+.qr-card h3 {
+  font-size: 14px;
+}
+
+.qr-card input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #2563eb;
+  background: transparent;
+  color: white;
+}
+
+/* ================= SCREEN ================= */
+.stage-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px;
+}
+
+.stage-curve {
+  width: 520px;
+  height: 40px;
+  background: radial-gradient(circle at center, #2563eb, #020617);
+  border-radius: 0 0 300px 300px;
+  box-shadow: 0 0 45px rgba(59,130,246,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-curve span {
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .stage-curve {
+    width: 100%;
+    height: 32px;
+    font-size: 10px;
+  }
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* ================= DATE INPUT ICON FIX ================= */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ================= TIME INPUT ICON FIX ================= */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ================= NUMBER INPUT (GRACE PERIOD) ================= */
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button:hover,
+input[type="number"]::-webkit-outer-spin-button:hover {
+  opacity: 1;
+}
+
+/* ================= POPUP OVERLAY ================= */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ================= POPUP CARD ================= */
+.popup-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 22px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 14px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  animation: popupScale 0.25s ease;
+}
+
+/* ================= ICON ================= */
+.popup-icon {
+  font-size: 26px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* ================= CONTENT ================= */
+.popup-content h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.popup-content p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #cbd5f5;
+  line-height: 1.4;
+}
+
+/* ================= TYPES ================= */
+.popup-card.success {
+  border-left: 4px solid #22c55e;
+}
+
+.popup-card.error {
+  border-left: 4px solid #ef4444;
+}
+
+.popup-card.warning {
+  border-left: 4px solid #f59e0b;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes popupScale {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .app {
+    padding: 16px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .app {
+    padding: 12px;
+  }
+}
+
+/* ================= SEATING RESPONSIVE ================= */
+
+/* Outer scroll container (mobile only scrolls) */
+.seating-scroll {
+  margin-top: 30px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+/* Inner container keeps desktop width intact */
+.seating-container {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Smooth horizontal scroll (BookMyShow feel) */
+.seating-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.seating-scroll::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .seating-container {
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .seating-container {
+    transform: scale(0.82);
+    transform-origin: top left;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .seating-container {
+    transform: scale(0.72);
+    transform-origin: top left;
+  }
+}

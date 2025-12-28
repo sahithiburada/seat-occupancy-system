@@ -1,0 +1,205 @@
+/* ================= CONTAINER ================= */
+.past-card {
+  margin-top: 40px;
+  padding: 24px;
+  background: #0b0f1a;
+  border-radius: 18px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* ================= HEADER ================= */
+.past-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.past-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.past-title h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.toggle-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: #020617;
+  cursor: pointer;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.toggle-btn:hover {
+  background: #020617;
+  color: #e5e7eb;
+  border-color: #2563eb;
+}
+
+/* ================= FILTERS ================= */
+.filters {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.filter-group input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e5e7eb;
+}
+
+.filter-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.apply-btn {
+  padding: 9px 18px;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.apply-btn:hover {
+  background: #1e40af;
+}
+
+.excel-btn {
+  padding: 9px 18px;
+  background: #16a34a;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.excel-btn:hover {
+  background: #15803d;
+}
+
+/* ================= TABLE ================= */
+.table-wrapper {
+  margin-top: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #020617;
+}
+
+th {
+  padding: 12px;
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: left;
+  border-bottom: 1px solid #1e293b;
+}
+
+td {
+  padding: 12px;
+  font-size: 13px;
+  color: #e5e7eb;
+  border-bottom: 1px solid #0f172a;
+}
+
+tbody tr:hover {
+  background: rgba(37,99,235,0.08);
+}
+
+/* ================= BADGES ================= */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.late {
+  background: rgba(255,183,3,0.15);
+  color: #ffb703;
+}
+
+.badge.on-time {
+  background: rgba(34,255,136,0.15);
+  color: #22ff88;
+}
+
+.badge.ended {
+  background: rgba(255,77,109,0.15);
+  color: #ff4d6d;
+}
+
+/* ================= DATE INPUT ICON FIX ================= */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ================= DELETE BUTTON ================= */
+.delete-btn {
+  background: transparent;
+  border: 1px solid #ff4d6d;
+  color: #ff4d6d;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ff4d6d;
+  color: #020617;
+  box-shadow: 0 0 12px rgba(255,77,109,0.6);
+}
+
+/* ================= TABLE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 720px;
+  }
+}
