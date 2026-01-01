@@ -32,24 +32,27 @@ router.post("/", async (req, res) => {
     if (!seat)
       return res.status(409).json({ message: "All seats occupied" });
 
-/* ===== LATE ENTRY CALCULATION (TIMEZONE SAFE – FINAL) ===== */
+/* ===== LATE ENTRY CALCULATION (FINAL – CORRECT TO MINUTE) ===== */
 
-// Get current time in LOCAL timezone (same as browser)
+// Current scan time
 const now = new Date();
 
-// Build session end time explicitly in local time
-const sessionEndTime = new Date(
-  `${session.sessionDate}T${session.sessionEnd}:00`
-);
+// Build session end and grace end times (using date + time)
+const sessionEndTime = new Date(`${session.sessionDate}T${session.sessionEnd}:00`);
+const graceEndTime = new Date(sessionEndTime);
+graceEndTime.setMinutes(graceEndTime.getMinutes() + session.graceMinutes);
 
-// 🔥 Force both times into LOCAL comparison
-const isLate =
-  now.getTime() >
-  new Date(
-    sessionEndTime.getTime() +
-    sessionEndTime.getTimezoneOffset() * 60000
-  ).getTime();
+// ⏱️ Compare only up to the minute (ignore seconds)
+const nowMinutes = now.getHours() * 60 + now.getMinutes();
+const endMinutes = sessionEndTime.getHours() * 60 + sessionEndTime.getMinutes();
 
+// ✅ Late only if scanned *after* end minute (not at same minute)
+const isLate = nowMinutes > endMinutes;
+
+// Optional: block scans completely after grace period
+// if (now > graceEndTime) {
+//   return res.status(403).json({ message: "Grace period over" });
+// }
 
     /* ===== SAVE SEAT ===== */
     seat.occupied = true;
@@ -83,3 +86,4 @@ const isLate =
 });
 
 module.exports = router;
+
