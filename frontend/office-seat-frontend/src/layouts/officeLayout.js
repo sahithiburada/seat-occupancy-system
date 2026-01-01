@@ -163,7 +163,7 @@ export const seatingLayout = [
   {
     row: "J",
     seats: mapRange(11, 24, "J", 1)
-  }
+  },
 ];
 
 
