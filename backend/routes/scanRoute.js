@@ -32,15 +32,24 @@ router.post("/", async (req, res) => {
     if (!seat)
       return res.status(409).json({ message: "All seats occupied" });
 
-    /* ===== LATE ENTRY CALCULATION (FIXED) ===== */
-    const now = new Date();
+/* ===== LATE ENTRY CALCULATION (TIMEZONE SAFE – FINAL) ===== */
 
-    const [endHour, endMin] = session.sessionEnd.split(":").map(Number);
-    const sessionEndTime = new Date(session.sessionDate);
-    sessionEndTime.setHours(endHour, endMin, 0, 0);
+// Get current time in LOCAL timezone (same as browser)
+const now = new Date();
 
-    // 🔥 LATE = scanned AFTER session end time
-    const isLate = now > sessionEndTime;
+// Build session end time explicitly in local time
+const sessionEndTime = new Date(
+  `${session.sessionDate}T${session.sessionEnd}:00`
+);
+
+// 🔥 Force both times into LOCAL comparison
+const isLate =
+  now.getTime() >
+  new Date(
+    sessionEndTime.getTime() +
+    sessionEndTime.getTimezoneOffset() * 60000
+  ).getTime();
+
 
     /* ===== SAVE SEAT ===== */
     seat.occupied = true;
