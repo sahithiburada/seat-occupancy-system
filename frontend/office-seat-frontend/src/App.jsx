@@ -3,7 +3,7 @@ import "./App.css";
 import SeatingLayout from "./components/SeatingLayout";
 import PastSessions from "./components/PastSessions";
 
-const API = "http://localhost:5000/api";
+const API = "https://seat-occupancy-system.onrender.com";
 const TOTAL_SEATS = 248;
 
 export default function App() {
