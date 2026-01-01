@@ -32,7 +32,7 @@ import * as XLSX from "xlsx";
    ----------
    ❗ Change this ONLY if backend URL changes.
 --------------------------------------------------------- */
-const API = "http://localhost:5000/api";
+const API = "https://seat-occupancy-system.onrender.com/api";
 
 export default function PastSessions() {
 
